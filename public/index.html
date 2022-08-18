@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Terra Errolis" description="a small map to errors">
+    <meta name="description" content="a small map to errors">
     <title>Terra Errolis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,9 @@
     <h1>Terra Errolis</h1>
     <div id="addError">
         <form action="submit" >
-        <input type="status" id="status">
-        <input type="name" id="name">
-        <input type="description" id="description">
+        <input type="status" id="status" placeholder="status">
+        <input type="name" id="name" placeholder="name">
+        <input type="description" id="description" placeholder="description">
         <button onclick="event.preventDefault()">add to list</button>
         </form>
     </div>
@@ -25,9 +25,9 @@
     <div id="allErrors">
         <div class="errorcard">
             <marquee behavior="scroll" direction="right">
-                <h3>status: </h3>
+                <h2>status: </h2>
             </marquee>
-            <h3 dir="rtl">name: </h3>
+            <h3 dir="rtl">:name </h3>
             <p>description</p>
         </div>
     </div>
