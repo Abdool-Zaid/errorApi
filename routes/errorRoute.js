@@ -5,7 +5,7 @@ const { json } = require("express");
 
 router.post("/", (req, res) => {
   try {
-    let sql = "INSERT INTO orders SET ?";
+    let sql = "INSERT INTO errors SET ?";
     const {
       staff_id,
       user_id,
@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
 // check order
 router.post("/check", (req, res) => {
   try {
-    let sql = "SELECT * FROM orders WHERE ?";
+    let sql = "SELECT * FROM errors WHERE ?";
     let order = {
       order_id: req.body.order_id,
     };
@@ -79,7 +79,7 @@ router.post("/check", (req, res) => {
 });
 
 // Verify
-router.get("/orders/verify", (req, res) => {
+router.get("/errors/verify", (req, res) => {
   const token = req.header("x-auth-token");
   jwt.verify(token, process.env.jwtSecret, (error, decodedToken) => {
     if (error) {
@@ -94,7 +94,7 @@ router.get("/orders/verify", (req, res) => {
 });
 router.get("/", (req, res) => {
   try {
-    con.query("SELECT * FROM orders", (err, result) => {
+    con.query("SELECT * FROM errors", (err, result) => {
       if (err) throw err;
       res.send(result);
     });
@@ -106,7 +106,7 @@ router.get("/", (req, res) => {
 
 router.get("/", (req, res) => {
   try {
-    let sql = "SELECT * FROM orders";
+    let sql = "SELECT * FROM errors";
     con.query(sql, (err, result) => {
       if (err) throw err;
       res.send(result);
@@ -120,7 +120,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   try {
     con.query(
-      `SELECT * FROM orders WHERE order_id = ${req.params.id}`,
+      `SELECT * FROM errors WHERE order_id = ${req.params.id}`,
       (err, result) => {
         if (err) throw err;
         res.send(result);
@@ -147,7 +147,7 @@ router.post("/", (req, res) => {
     try {
       con.query(
         //When using the ${}, the content of con.query MUST be in the back tick
-        `INSERT INTO orders (staff_id,user_id,amount,order_status) VALUES ("${staff_id}",${user_id}","${amount}","${order_status}")`,
+        `INSERT INTO errors (staff_id,user_id,amount,order_status) VALUES ("${staff_id}",${user_id}","${amount}","${order_status}")`,
         (err, result) => {
           if (err) throw err;
           res.json({msg:`order registered ${order_id}`});
@@ -182,7 +182,7 @@ router.put("/:id", (req, res) => {
     } = req.body;
 
     con.query(
-      `UPDATE orders set email="${email}",password="${password}",full_name="${full_name}",billing_address="${billing_address}",default_shipping_address="${default_shipping_address}",country="${country}",phone="${phone}",order_type="${order_type}" WHERE order_id = "${req.params.id}"`,
+      `UPDATE errors set email="${email}",password="${password}",full_name="${full_name}",billing_address="${billing_address}",default_shipping_address="${default_shipping_address}",country="${country}",phone="${phone}",order_type="${order_type}" WHERE order_id = "${req.params.id}"`,
       (err, result) => {
         if (err) throw err;
         res.send(result);
@@ -199,7 +199,7 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   try {
     con.query(
-      `DELETE FROM orders WHERE order_id = "${req.params.id}" `,
+      `DELETE FROM errors WHERE order_id = "${req.params.id}" `,
       (err, result) => {
         if (err) throw err;
         res.send(result);
