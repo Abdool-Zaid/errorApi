@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const con = require("../lib/db_connection");
+const con = require("../lib/db_connection.js");
 const { json } = require("express");
 
 router.post("/", (req, res) => {
