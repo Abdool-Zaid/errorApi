@@ -21,6 +21,6 @@ fetch("https://starlit-chimera-256491.netlify.app/.netlify/functions/api/errors"
     });
   });
 async function AddError(){
-fetch(' ')
-
-}
+fetch("https://starlit-chimera-256491.netlify.app/.netlify/functions/api/errors", {
+method:post
+})
