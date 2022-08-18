@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Orbitron;
+}
+:root{
+    --bg: #64fd64;
+    --ss: 1%;
+    --sb: 2px;
+    --sixty: #d5cabd;
+    --cartBg: #d5cabda8;
+    --thirty: #4e8397;
+    --acc: #845ec2;
+    --chestHair: #00000000;
+    --helicopter:none;
+}
+body{
+    background-color: var(--bg);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form >*{
+    /* margin: var(--ss); */
+    padding: var(--ss);
+    background-color: var(--cartBg);
+
+}

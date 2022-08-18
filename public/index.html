@@ -6,8 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Terra Errolis" description="a small map to errors">
     <title>Terra Errolis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>Terra Errolis</h1>
+    <div id="addError">
+        <form action="submit" >
+        <input type="status" id="status">
+        <input type="name" id="name">
+        <input type="description" id="description">
+        <button onclick="event.preventDefault()">add to list</button>
+        </form>
+    </div>
+    <div id="target"></div>
+    <div id="allErrors">
+        <div class="errorcard">
+            <marquee behavior="scroll" direction="right">
+                <h3>status: </h3>
+            </marquee>
+            <h3 dir="rtl">name: </h3>
+            <p>description</p>
+        </div>
+    </div>
+    <script src="./scrypt.js"></script>
 </body>
 </html>
