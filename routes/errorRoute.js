@@ -104,7 +104,7 @@ router.get("/", (req, res) => {
   }
 });
 
-router.get("/", middleware, (req, res) => {
+router.get("/", (req, res) => {
   try {
     let sql = "SELECT * FROM orders";
     con.query(sql, (err, result) => {
